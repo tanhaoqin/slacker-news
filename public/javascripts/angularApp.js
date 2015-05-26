@@ -14,10 +14,10 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 			controller: 'PostsCtrl'
 		});
 
-	$urlRouterProvider.otherwise('home');
-}])
+	$urlRouterProvider.otherwise('/home');
+}]);
 
-app.service('posts', ['', function(){
+app.service('posts', [function(){
 	var o = {
 		posts: []
 	};
@@ -25,7 +25,6 @@ app.service('posts', ['', function(){
 }]);
 
 app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts){
-	$scope.test = 'Hello World!';
 	$scope.posts = posts.posts;
 	// $scope.posts = [
 	// 	{title:'post 1', upvotes:5},
@@ -66,4 +65,4 @@ app.controller('PostsCtrl', ['$scope',
 			});
 			$scope.body = '';
 		};
-}])
+}]);
